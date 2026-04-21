@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cookie Extractor</title>
+	
+	<script type="module" src="app.js" defer></script>
+
+	<style>
+		:root {
+			--bg-clr: #F0EDE5;
+			--primary-clr: #004643;
+		}
+
+		body {
+			background-color: var(--bg-clr);
+			font-family: sans-serif;
+		}
+
+		main {
+			min-width: 20rem;
+		}
+
+		h1 {
+			font-size: 1.2rem;
+		}
+
+		#get {
+			border: none;
+			background-color: var(--primary-clr);
+			color: var(--bg-clr);
+			padding: 0.5rem 1rem;
+			border-radius: 2px;
+			cursor: pointer;
+		}
+
+		#result {
+			max-width: 20rem;
+			max-height: 30rem;
+
+			overflow-y: "auto";
+			overflow-wrap: break-word;
+			margin: 1rem 0;
+		}
+	</style>
+  </head>
+
+  <body>
+	  <main>
+			<h1>Cookie Extractor</h1>
+			<button type="button" id="get">GET</button>
+
+			<div id="result">
+			</div>
+	  </main>
+
+  </body>
+</html>
