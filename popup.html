@@ -17,10 +17,13 @@
 		body {
 			background-color: var(--bg-clr);
 			font-family: sans-serif;
+			overflow: hidden;
 		}
 
 		main {
 			min-width: 20rem;
+			height: 100%;
+			display: grid;
 		}
 
 		h1 {
@@ -36,23 +39,37 @@
 			cursor: pointer;
 		}
 
-		#result {
-			max-width: 20rem;
-			max-height: 30rem;
+		#websiteName {
+			font-size: 0.9rem;
+		}
 
-			overflow-y: "auto";
+		.result-container {
+			max-width: 20rem;
+			max-height: 10rem;
+			height: 100%;
+			overflow-y: auto;
+
 			overflow-wrap: break-word;
-			margin: 1rem 0;
+			margin: 0.5rem 0;
+		}
+
+		#result {
+			font-size: 0.8rem;
 		}
 	</style>
   </head>
 
   <body>
 	  <main>
-			<h1>Cookie Extractor</h1>
-			<button type="button" id="get">GET</button>
+			<div>
+				<h1>Cookie Extractor</h1>
+				<p id="websiteName"></p>
 
-			<div id="result">
+				<button type="button" id="get">GET</button>
+			</div>
+
+			<div class="result-container">
+				<p id="result"></p>
 			</div>
 	  </main>
 

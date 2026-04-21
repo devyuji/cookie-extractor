@@ -1,12 +1,13 @@
 
 const resultHTML = document.getElementById("result");
+const websiteNameHTML = document.getElementById("websiteName");
 const btn = document.getElementById("get");
 
 btn.addEventListener("click", handleSubmit)
+let domain;
 
-async function handleSubmit() {
+async function main() {
 	const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
-	let domain;
 
 	if (tab.url) {
 		try{
@@ -21,6 +22,12 @@ async function handleSubmit() {
 		return
 	}
 
+	websiteNameHTML.innerHTML = domain;
+}
+
+async function handleSubmit() {
+	if (!domain) return;
+
 	console.log(domain);
 	const cookie = await getCookies(domain);
 
@@ -29,7 +36,7 @@ async function handleSubmit() {
 	if (cookieStr) {
 		resultHTML.innerHTML = cookieStr;
 	} else {
-		resultHTML.innerHTML = "NO COOKIE!"
+		resultHTML.innerHTML = "NO COOKIE FOUND!"
 	}
 }
 
@@ -65,3 +72,4 @@ async function getCookies(domain) {
 	return cookie
 }
 
+main();
